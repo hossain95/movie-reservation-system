@@ -76,13 +76,13 @@ public class RoleServiceImpl implements RoleService {
         if(!roles.isEmpty()) {
             return;
         }
-        Set<Permission> adminPermissions = Set.of(Permission.ADMIN_PERMISSION);
-        Set<Permission> userPermissions = Set.of(Permission.USER_PERMISSION);
+        Set<Permission> adminPermissions = Set.of(Permission.ORGANIZATION_READ, Permission.ORGANIZATION_WRITE);
+        Set<Permission> userPermissions = Set.of(Permission.CUSTOMER_DEFAULT);
 
-        RoleCreateRequest adminRole = new RoleCreateRequest("Admin", "Admin role", adminPermissions);
+        RoleCreateRequest adminRole = new RoleCreateRequest("Organization", "Organization role", adminPermissions);
         createRole(adminRole);
 
-        RoleCreateRequest userRole = new RoleCreateRequest("User", "User role", userPermissions);
+        RoleCreateRequest userRole = new RoleCreateRequest("Customer_Default", "Customer default role", userPermissions);
         createRole(userRole);
     }
 

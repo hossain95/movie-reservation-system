@@ -18,7 +18,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PreAuthorize("hasAuthority('ADMIN_PERMISSION')")
+    @PreAuthorize("hasAnyAuthority('ORGANIZATION_WRITE', 'USER_WRITE')")
     @PostMapping("/add")
     ResponseEntity<SuccessResponse> userRegistration(@Valid @RequestBody ExtendedUserCreateRequest requestDto) {
         return new ResponseEntity<>(userService.addNewAdminUser(requestDto), HttpStatus.CREATED);

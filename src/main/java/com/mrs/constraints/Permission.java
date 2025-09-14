@@ -1,8 +1,7 @@
 package com.mrs.constraints;
 
 public enum Permission {
-    USER_PERMISSION,
-    ADMIN_PERMISSION,
+    CUSTOMER_DEFAULT,
     ORGANIZATION_READ,
     ORGANIZATION_WRITE,
     ROLE_READ,

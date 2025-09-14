@@ -1,0 +1,16 @@
+CREATE TABLE user
+(
+    id           INT AUTO_INCREMENT PRIMARY KEY,
+    name         VARCHAR(60) NOT NULL,
+    gender       ENUM('MALE', 'FEMALE', 'OTHER') NOT NULL,
+    email        VARCHAR(80) NOT NULL UNIQUE,
+    phone        VARCHAR(15) NOT NULL,
+    password     VARCHAR(255),
+    profile_url  VARCHAR(255),
+    status       ENUM('ACTIVE', 'INACTIVE', 'PENDING_OTP_VERIFICATION', 'PENDING_PASSWORD_CREATION') NOT NULL,
+    role_id      INT         NOT NULL,
+    account_type ENUM('USER', 'ORGANIZATION') NOT NULL,
+    created_at   TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at   TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+

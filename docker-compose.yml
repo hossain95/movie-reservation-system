@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  mysql:
+    container_name: movie_reservation_system_db
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: mrsdev
+      MYSQL_USER: mrsdev
+      MYSQL_PASSWORD: mrsdev
+      MYSQL_DATABASE: mrsdev
+    volumes:
+      - db_volume:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
+
+  redis:
+    container_name: movie_reservation_system_cache
+    image: redis:7.2
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - cache_volume:/data
+    restart: always
+
+volumes:
+  db_volume:
+  cache_volume:
